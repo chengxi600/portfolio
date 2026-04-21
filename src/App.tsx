@@ -1,5 +1,5 @@
 import "./App.css";
-import Background from "./assets/background.jpg";
+import Background from "./assets/textures/menu/background.jpg";
 import NavButtonTray from "./components/NavButtonTray";
 import type { CSSProperties } from "react";
 

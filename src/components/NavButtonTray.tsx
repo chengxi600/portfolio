@@ -1,29 +1,34 @@
 import SettingsIcon from "@mui/icons-material/Settings";
+import BookIcon from "@mui/icons-material/Book";
+import ComputerIcon from "@mui/icons-material/Computer";
+import InfoIcon from "@mui/icons-material/Info";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuButton from "./MenuButton";
 import NavButton from "./NavButton";
 import { useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
+import useButtonSfx from "../hooks/useButtonSfx";
 
 const navButtons = [
   {
-    title: "play",
+    title: "projects",
     color: "#7259D7",
-    icon: <SettingsIcon style={{ color: "white" }} />,
+    icon: <ComputerIcon style={{ color: "white" }} />,
   },
   {
-    title: "edit",
+    title: "socials",
     color: "#F7B002",
-    icon: <SettingsIcon style={{ color: "white" }} />,
+    icon: <AccountCircleIcon style={{ color: "white" }} />,
   },
   {
-    title: "browse",
+    title: "blog",
     color: "#AEC300",
-    icon: <SettingsIcon style={{ color: "white" }} />,
+    icon: <BookIcon style={{ color: "white" }} />,
   },
   {
-    title: "exit",
+    title: "about",
     color: "#FE55A5",
-    icon: <SettingsIcon style={{ color: "white" }} />,
+    icon: <InfoIcon style={{ color: "white" }} />,
   },
 ];
 
@@ -31,12 +36,13 @@ const menuButtonTransition = {
   type: "tween" as const,
   ease: "linear" as const,
   duration: 0.1,
-  opacity: { duration: 0 }
+  opacity: { duration: 0 },
 };
 
 function NavButtonTray() {
   const [expanded, setExpanded] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const { playHover, playLogoClick, playLogoEnter, playButtonClick, playButtonEnter } = useButtonSfx();
 
   const handleMenuButtonClick = () => {
     setIsAnimating(true);
@@ -61,6 +67,7 @@ function NavButtonTray() {
           title="settings"
           color="#606060"
           isFirst
+          sfx={{ hover: playHover, click: playButtonClick }}
         />
         <motion.div
           layoutId="osuMenuButton"
@@ -71,6 +78,7 @@ function NavButtonTray() {
             style={{ width: "30vmin" }}
             onClick={handleMenuButtonClick}
             disableHover={isAnimating}
+            sfx={{ hover: playHover, click: playLogoEnter }}
           />
         </motion.div>
         {navButtons.map((button) => (
@@ -79,6 +87,7 @@ function NavButtonTray() {
             icon={button.icon}
             title={button.title}
             color={button.color}
+            sfx={{ hover: playHover, click: playButtonClick }}
           />
         ))}
       </div>
@@ -119,6 +128,7 @@ function NavButtonTray() {
                 style={{ width: "55vmin" }}
                 onClick={handleMenuButtonClick}
                 disableHover={isAnimating}
+                sfx={{ hover: playHover, click: playLogoClick }}
               />
             </motion.div>
           </motion.div>

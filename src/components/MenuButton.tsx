@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import Logo from "../assets/logo.png";
-import LogoBackground from "../assets/logo_background.jpg";
+import Logo from "../assets/textures/menu/logo.png";
+import LogoBackground from "../assets/textures/menu/logo_background.jpg";
 import { useMemo, useState } from "react";
 import "./MenuButton.css";
 import type { CSSProperties } from "react";
@@ -9,10 +9,15 @@ export default function MenuButton({
   style,
   onClick,
   disableHover,
+  sfx,
 }: {
   style?: CSSProperties;
   onClick?: () => void;
   disableHover?: boolean;
+  sfx?: {
+    hover: () => void;
+    click: () => void;
+  };
 }) {
   const [buttonScale, setButtonScale] = useState(1);
   const pulseScale = useMemo(
@@ -20,9 +25,18 @@ export default function MenuButton({
     [buttonScale],
   );
 
+  const handleClick = () => {
+    sfx?.click();
+    onClick?.();
+  };
+
+  const handleHover = () => {
+    sfx?.hover();
+  };
+
   return (
     <motion.button
-      onClick={onClick}
+      onClick={handleClick}
       style={{ zIndex: 1000, ...style }}
       className="osuMenu__logoButton"
       layout
@@ -36,6 +50,7 @@ export default function MenuButton({
         repeat: Infinity,
         repeatType: "loop",
       }}
+      onMouseEnter={handleHover}
     >
       <motion.div
         className="osuMenu__logoBg"
