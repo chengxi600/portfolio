@@ -1,20 +1,20 @@
 import type { CSSProperties, ReactNode } from "react";
 import "./NavButton.css";
 import { motion } from "motion/react";
-import useButtonSfx from "../hooks/useButtonSfx";
 
 interface NavButtonProps {
   icon: ReactNode;
   title: string;
   color: string;
   isFirst?: boolean;
+  onClick?: () => void;
   sfx?: {
     hover: () => void;
     click: () => void;
   };
 }
 
-function NavButton({ icon, title, color, isFirst = false, sfx }: NavButtonProps) {
+function NavButton({ icon, title, color, isFirst = false, sfx, onClick }: NavButtonProps) {
 
   type NavButtonStyle = CSSProperties & { ["--osu-nav-color"]?: string };
   const style: NavButtonStyle = {
@@ -34,6 +34,7 @@ function NavButton({ icon, title, color, isFirst = false, sfx }: NavButtonProps)
 
   const handleClick = () => {
     sfx?.click();
+    onClick?.();
   };
 
   const handleHover = () => {
@@ -52,7 +53,7 @@ function NavButton({ icon, title, color, isFirst = false, sfx }: NavButtonProps)
       whileTap={{ paddingInline: 10 }}
       transition={{ type: "spring", stiffness: 520, damping: 42, mass: 0.7 }}
       variants={{
-        hover: { paddingInline: 18 },   // hover padding
+        hover: { paddingInline: 24 },   // hover padding
       }}
       onMouseEnter={handleHover}
       onClick={handleClick}

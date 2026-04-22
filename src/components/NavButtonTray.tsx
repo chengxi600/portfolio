@@ -1,36 +1,9 @@
-import SettingsIcon from "@mui/icons-material/Settings";
-import BookIcon from "@mui/icons-material/Book";
-import ComputerIcon from "@mui/icons-material/Computer";
-import InfoIcon from "@mui/icons-material/Info";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuButton from "./MenuButton";
 import NavButton from "./NavButton";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 import useButtonSfx from "../hooks/useButtonSfx";
-
-const navButtons = [
-  {
-    title: "projects",
-    color: "#7259D7",
-    icon: <ComputerIcon style={{ color: "white" }} />,
-  },
-  {
-    title: "socials",
-    color: "#F7B002",
-    icon: <AccountCircleIcon style={{ color: "white" }} />,
-  },
-  {
-    title: "blog",
-    color: "#AEC300",
-    icon: <BookIcon style={{ color: "white" }} />,
-  },
-  {
-    title: "about",
-    color: "#FE55A5",
-    icon: <InfoIcon style={{ color: "white" }} />,
-  },
-];
+import useNavMenus from "../hooks/useNavMenus";
 
 const menuButtonTransition = {
   type: "tween" as const,
@@ -42,97 +15,116 @@ const menuButtonTransition = {
 function NavButtonTray() {
   const [expanded, setExpanded] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const { playHover, playLogoClick, playLogoEnter, playButtonClick, playButtonEnter } = useButtonSfx();
+  const { currentMenu } = useNavMenus({ setExpanded });
+  const {
+    playHover,
+    playLogoClick,
+    playLogoEnter,
+  } = useButtonSfx();
 
   const handleMenuButtonClick = () => {
     setIsAnimating(true);
-    setExpanded((prev) => !prev);
+    setExpanded(true);
+    if (expanded) {
+      // TODO: enter next screen
+    }
   };
 
   const NavButtonTrayExpanded = () => {
+    const [firstButton, ...restButtons] = useMemo(() => currentMenu, [currentMenu]);
+
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#393939",
-          width: "100vw",
-          height: "12vh",
+      <motion.div
+        key="expanded"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{
+          opacity: 0,
+          transition: { duration: 0.12 },
         }}
       >
-        <NavButton
-          icon={<SettingsIcon style={{ color: "white" }} />}
-          title="settings"
-          color="#606060"
-          isFirst
-          sfx={{ hover: playHover, click: playButtonClick }}
-        />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#393939",
+            width: "100vw",
+            height: "12vh",
+          }}
+        >
+          {/* FIRST BUTTON */}
+          <NavButton
+            key={firstButton.title}
+            icon={firstButton.icon}
+            title={firstButton.title}
+            color={firstButton.color}
+            sfx={{ hover: playHover, click: firstButton.clickSfx }}
+            onClick={firstButton.onClick}
+            isFirst
+          />
+
+          {/* MENU BUTTON */}
+          <motion.div
+            layoutId="osuMenuButton"
+            transition={menuButtonTransition}
+            onLayoutAnimationComplete={() => setIsAnimating(false)}
+          >
+            <MenuButton
+              style={{ width: "30vmin" }}
+              onClick={handleMenuButtonClick}
+              disableHover={isAnimating}
+              sfx={{ hover: playHover, click: playLogoEnter }}
+            />
+          </motion.div>
+
+          {/* REST OF BUTTONS */}
+          {restButtons.map((button) => (
+            <NavButton
+              key={button.title}
+              icon={button.icon}
+              title={button.title}
+              color={button.color}
+              sfx={{ hover: playHover, click: button.clickSfx }}
+              onClick={button.onClick}
+            />
+          ))}
+        </div>
+      </motion.div>
+    );
+  };
+
+  const NavButtonTrayCollapsed = () => {
+    return (
+      <motion.div
+        key="collapsed"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{
+          opacity: 0,
+          transition: { duration: 0.12 },
+        }}
+      >
         <motion.div
           layoutId="osuMenuButton"
           transition={menuButtonTransition}
           onLayoutAnimationComplete={() => setIsAnimating(false)}
         >
           <MenuButton
-            style={{ width: "30vmin" }}
+            style={{ width: "55vmin" }}
             onClick={handleMenuButtonClick}
             disableHover={isAnimating}
-            sfx={{ hover: playHover, click: playLogoEnter }}
+            sfx={{ hover: playHover, click: playLogoClick }}
           />
         </motion.div>
-        {navButtons.map((button) => (
-          <NavButton
-            key={button.title}
-            icon={button.icon}
-            title={button.title}
-            color={button.color}
-            sfx={{ hover: playHover, click: playButtonClick }}
-          />
-        ))}
-      </div>
+      </motion.div>
     );
   };
 
   return (
     <LayoutGroup id="navTray">
       <AnimatePresence initial={false} mode="popLayout">
-        {expanded ? (
-          <motion.div
-            key="expanded"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{
-              opacity: 0,
-              transition: { duration: 0.12 },
-            }}
-          >
-            <NavButtonTrayExpanded />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="collapsed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{
-              opacity: 0,
-              transition: { duration: 0.12 },
-            }}
-          >
-            <motion.div
-              layoutId="osuMenuButton"
-              transition={menuButtonTransition}
-              onLayoutAnimationComplete={() => setIsAnimating(false)}
-            >
-              <MenuButton
-                style={{ width: "55vmin" }}
-                onClick={handleMenuButtonClick}
-                disableHover={isAnimating}
-                sfx={{ hover: playHover, click: playLogoClick }}
-              />
-            </motion.div>
-          </motion.div>
-        )}
+        {expanded ? <NavButtonTrayExpanded /> : <NavButtonTrayCollapsed />}
       </AnimatePresence>
     </LayoutGroup>
   );
