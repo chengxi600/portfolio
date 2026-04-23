@@ -1,0 +1,41 @@
+.osuProjectsView {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background: radial-gradient(circle at top, #1b1b25 0%, #0a0a10 65%);
+  justify-content: space-between;
+}
+
+.osuProjectsDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 32px;
+}
+
+.osuProjectsDetails h1 {
+  margin: 0;
+}
+
+.osuProjectWheel {
+  position: relative;
+  overflow: hidden;
+  width: 40vw;
+  height: 100%;
+  overscroll-behavior: contain;
+}
+
+.osuProjectWheel__track {
+  position: relative;
+  z-index: 0;
+}
+
+@media (max-width: 900px) {
+  .osuProjectsView {
+    grid-template-columns: 1fr;
+  }
+
+  .osuProjectsDetails {
+    padding-right: 0;
+  }
+}

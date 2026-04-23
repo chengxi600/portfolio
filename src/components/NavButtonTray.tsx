@@ -16,11 +16,7 @@ function NavButtonTray() {
   const [expanded, setExpanded] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const { currentMenu } = useNavMenus({ setExpanded });
-  const {
-    playHover,
-    playLogoClick,
-    playLogoEnter,
-  } = useButtonSfx();
+  const { playHover, playLogoClick, playLogoEnter } = useButtonSfx();
 
   const handleMenuButtonClick = () => {
     setIsAnimating(true);
@@ -31,7 +27,10 @@ function NavButtonTray() {
   };
 
   const NavButtonTrayExpanded = () => {
-    const [firstButton, ...restButtons] = useMemo(() => currentMenu, [currentMenu]);
+    const [firstButton, ...restButtons] = useMemo(
+      () => currentMenu,
+      [currentMenu],
+    );
 
     return (
       <motion.div

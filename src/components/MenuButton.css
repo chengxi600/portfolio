@@ -27,6 +27,7 @@
   background-size: auto 100%;
   background-repeat: repeat-x;
   background-position: 0 50%;
+  animation: osuLogoScroll 80s linear infinite;
   transform: scale(1.08);
   filter: saturate(1.05) contrast(1.05);
   transition: filter 140ms ease;
@@ -50,9 +51,21 @@
     filter 140ms ease;
 }
 
+@keyframes osuLogoScroll {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: -900px 50%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .osuMenu__logoButton {
     transition: none;
+  }
+  .osuMenu__logoBg {
+    animation: none;
   }
   .osuMenu__logoImage {
     transition: none;

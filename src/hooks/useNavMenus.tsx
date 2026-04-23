@@ -9,6 +9,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import { useMemo, useState } from "react";
 import useButtonSfx from "./useButtonSfx";
+import { useNavigate } from "react-router-dom";
 
 interface NavButtonProps {
   title: string;
@@ -30,6 +31,7 @@ function useNavMenus({
     playButtonEnter,
   } = useButtonSfx();
   const [menuId, setMenuId] = useState<MenuId>("main");
+  const navigate = useNavigate();
 
   const menus = useMemo(() => {
     const mainMenu: NavButtonProps[] = [
@@ -44,6 +46,9 @@ function useNavMenus({
         color: "#7259D7",
         icon: <ComputerIcon style={{ color: "white" }} />,
         clickSfx: playButtonClick,
+        onClick: () => {
+          navigate("/projects");
+        },
       },
       {
         title: "blog",
@@ -80,7 +85,7 @@ function useNavMenus({
         title: "back",
         color: "#6F8000",
         icon: <ChevronLeftIcon style={{ color: "white" }} />,
-        clickSfx: playButtonEnter,
+        clickSfx: playButtonClick,
         onClick: () => {
           setMenuId("main");
         },

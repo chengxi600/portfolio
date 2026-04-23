@@ -10,7 +10,7 @@ interface NavButtonProps {
   onClick?: () => void;
   sfx?: {
     hover: () => void;
-    click: () => void;
+    click?: () => void;
   };
 }
 
@@ -33,7 +33,7 @@ function NavButton({ icon, title, color, isFirst = false, sfx, onClick }: NavBut
   };
 
   const handleClick = () => {
-    sfx?.click();
+    sfx?.click?.();
     onClick?.();
   };
 
