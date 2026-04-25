@@ -1,0 +1,19 @@
+.osuProjectCard--link {
+  height: 40px;
+  padding: 0.2vh 1.5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.osuProjectCard--link img {
+  width: 24px;
+  height: 24px;
+}
+
+.osuProjectCard__linkLabel {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}

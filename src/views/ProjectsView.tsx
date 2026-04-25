@@ -5,6 +5,7 @@ import ProjectCard from "../components/ProjectCard";
 import LinkCard from "../components/LinkCard";
 import useProjectWheel from "../hooks/useProjectWheel";
 import useProjectList from "../hooks/useProjectList";
+import useButtonSfx from "../hooks/useButtonSfx";
 
 const PROJECT_ITEM_HEIGHT = 84;
 const PROJECT_LINK_HEIGHT = 56;
@@ -24,6 +25,8 @@ function ProjectsView() {
     isFocusable: (item) => item.type === "project",
   });
   const pendingFocusId = useRef<string | null>(null);
+  const { playProjectHover } = useButtonSfx();
+  const lastHoverSfxAt = useRef(0);
 
   useEffect(() => {
     const targetId = pendingFocusId.current;
@@ -47,7 +50,18 @@ function ProjectsView() {
         <p>Replace this with your detail panel.</p>
       </section>
 
-      <section className="osuProjectWheel" ref={listRef} onWheel={handleWheel}>
+      <section
+        className="osuProjectWheel"
+        ref={listRef}
+        onWheel={(event) => {
+          handleWheel(event);
+          const now = Date.now();
+          if (now - lastHoverSfxAt.current > 90) {
+            playProjectHover();
+            lastHoverSfxAt.current = now;
+          }
+        }}
+      >
         <motion.div
           className="osuProjectWheel__track"
           animate={{ y: trackOffset }}
@@ -81,14 +95,13 @@ function ProjectsView() {
             return (
               <LinkCard
                 key={`${item.id}-${itemState.index}`}
-                label={item.label}
+                linkInfo={item.linkInfo}
                 width={listWidth}
                 scale={itemState.scale}
                 opacity={itemState.opacity}
                 isSelected={item.parentId === expandedProjectId}
                 onClick={() => {
                   pendingFocusId.current = item.parentId;
-                  window.open(item.url, "_blank");
                 }}
               />
             );

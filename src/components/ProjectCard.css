@@ -20,18 +20,6 @@
     0 0 16px rgba(255, 255, 255, 0.6);
 }
 
-.osuProjectCard--link {
-  height: 56px;
-  justify-content: center;
-  padding: 0.2vh 1.5vh;
-}
-
-.osuProjectCard__linkLabel {
-  font-size: 12px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
 .osuProjectCard__text {
   display: flex;
   flex-direction: column;

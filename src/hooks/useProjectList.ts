@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { projects, type Project } from "../data/projects";
+import { projects, type LinkInfo, type Project } from "../data/projects";
 
 export type ProjectSortKey = "default" | "title" | "year";
 export type ProjectTagFilter = Project["tag"] | "All";
@@ -14,8 +14,7 @@ export type ProjectListItem =
       type: "link";
       id: string;
       parentId: string;
-      label: string;
-      url: string;
+      linkInfo: LinkInfo;
     };
 
 type UseProjectListOptions = {
@@ -62,27 +61,15 @@ function useProjectList({
       ];
 
       if (expandedId === project.id) {
-        if (project.github) {
+        project.links.forEach((link) => {
           rows.push({
             type: "link",
-            id: `${project.id}-github`,
+            id: `${project.id}-${link.label}`,
             parentId: project.id,
-            label: "GitHub",
-            url: project.github,
+            linkInfo: link,
           });
-        }
-
-        if (project.link) {
-          rows.push({
-            type: "link",
-            id: `${project.id}-link`,
-            parentId: project.id,
-            label: "Live Link",
-            url: project.link,
-          });
-        }
+        });
       }
-
       return rows;
     });
   }, [expandedProjectId, sortKey, tagFilter]);

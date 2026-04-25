@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import type { Project } from "../data/projects";
 import "./ProjectCard.css";
+import useButtonSfx from "../hooks/useButtonSfx";
 
 type ProjectCardProps = {
   project: Project;
@@ -22,10 +23,17 @@ function ProjectCard({
   onClick,
 }: ProjectCardProps) {
   const selectedOffset = isSelected ? SELECTED_LEFT_EXTENSION : 0;
+  const { playProjectHover, playProjectSelect } = useButtonSfx();
+
+  const handleClick = () => {
+    playProjectSelect();
+    onClick();
+  };
 
   return (
     <motion.div
       className={`osuProjectCard ${isSelected ? "osuProjectCard--selected" : ""}`}
+      onMouseEnter={playProjectHover}
       style={{
       }}
       animate={{
@@ -35,7 +43,7 @@ function ProjectCard({
         opacity,
       }}
       transition={{ type: "spring", stiffness: 220, damping: 24, mass: 0.7 }}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <div className="osuProjectCard__text">
         <span className="osuProjectCard__title">

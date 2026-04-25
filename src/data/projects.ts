@@ -1,6 +1,16 @@
 import ClerkIcon from "../assets/textures/projects/clerk.svg";
 import ReactIcon from "../assets/textures/projects/react.svg";
 import TsIcon from "../assets/textures/projects/ts.svg";
+import GithubIcon from "../assets/textures/projects/github.svg";
+import WebsiteIcon from "../assets/textures/projects/website.svg";
+import DownloadIcon from "../assets/textures/projects/download.svg";
+import BlogIcon from "../assets/textures/projects/blog.svg";
+
+export type LinkInfo = {
+  label: string;
+  link: string;
+  icon: string;
+};
 
 export type Project = {
   id: string;
@@ -9,8 +19,7 @@ export type Project = {
   stack: string[];
   year: number;
   tag: "Project" | "Research" | "Open Source";
-  github?: string;
-  link?: string;
+  links: LinkInfo[];
 };
 
 export const projects: Project[] = [
@@ -22,7 +31,13 @@ export const projects: Project[] = [
     stack: [ClerkIcon, ReactIcon, TsIcon],
     year: 2025,
     tag: "Project",
-    link: "https://lgbtq-senior-housing.vercel.app/",
+    links: [
+      {
+        label: "Website",
+        link: "https://lgbtq-senior-housing.vercel.app/",
+        icon: WebsiteIcon,
+      },
+    ],
   },
   {
     id: "rl-stuff",
@@ -31,7 +46,13 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2021,
     tag: "Project",
-    github: "https://github.com/chengxi600/RLStuff",
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/chengxi600/RLStuff",
+        icon: GithubIcon,
+      },
+    ],
   },
   {
     id: "portfolio",
@@ -40,7 +61,13 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2026,
     tag: "Project",
-    github: "https://github.com/chengxi600/portfolio",
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/chengxi600/portfolio",
+        icon: GithubIcon,
+      },
+    ],
   },
   {
     id: "fillyb-exchange",
@@ -49,8 +76,18 @@ export const projects: Project[] = [
     stack: [ClerkIcon, TsIcon],
     year: 2026,
     tag: "Project",
-    github: "https://github.com/OtakuExchange",
-    link: "https://fillybexchange.vercel.app/",
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/OtakuExchange",
+        icon: GithubIcon,
+      },
+      {
+        label: "Website",
+        link: "https://fillybexchange.vercel.app/",
+        icon: WebsiteIcon,
+      },
+    ],
   },
   {
     id: "satoru",
@@ -59,8 +96,18 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2026,
     tag: "Project",
-    github: "https://github.com/chengxi600/satoru-desktop",
-    link: "https://github.com/chengxi600/satoru-desktop/releases/tag/v1.1.0",
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/chengxi600/satoru-desktop",
+        icon: GithubIcon,
+      },
+      {
+        label: "Download",
+        link: "https://github.com/chengxi600/satoru-desktop/releases/tag/v1.1.0",
+        icon: DownloadIcon,
+      },
+    ],
   },
   {
     id: "genshin-optimizer",
@@ -69,8 +116,18 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2024,
     tag: "Open Source",
-    github: "https://github.com/frzyc/genshin-optimizer",
-    link: "https://frzyc.github.io/genshin-optimizer/"
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/frzyc/genshin-optimizer",
+        icon: GithubIcon,
+      },
+      {
+        label: "Website",
+        link: "https://frzyc.github.io/genshin-optimizer/",
+        icon: WebsiteIcon,
+      },
+    ],
   },
   {
     id: "rpg-concept",
@@ -79,8 +136,18 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2018,
     tag: "Project",
-    github: "https://github.com/chengxi600/RPGConcept",
-    link: "https://chengxi600.medium.com/rpgconcept-hud-29cb36a64029"
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/chengxi600/RPGConcept",
+        icon: GithubIcon,
+      },
+      {
+        label: "Blog",
+        link: "https://chengxi600.medium.com/rpgconcept-hud-29cb36a64029",
+        icon: BlogIcon,
+      },
+    ],
   },
   {
     id: "conway",
@@ -89,15 +156,28 @@ export const projects: Project[] = [
     stack: [ClerkIcon, ReactIcon, TsIcon],
     year: 2018,
     tag: "Project",
-    github: "https://github.com/chengxi600/Java_Game-of-Life"
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/chengxi600/Java_Game-of-Life",
+        icon: GithubIcon,
+      },
+    ],
   },
   {
     id: "phirl",
     title: "PHIRL",
-    subtitle: "Progress heuristic inverse reinforcement learning with Robot Study",
+    subtitle:
+      "Progress heuristic inverse reinforcement learning with Robot Study",
     stack: [ReactIcon, TsIcon],
     year: 2026,
     tag: "Research",
-    github: "https://github.com/chengxi600/PHIRL-Kinova",
-  }
+    links: [
+      {
+        label: "GitHub",
+        link: "https://github.com/chengxi600/PHIRL-Kinova",
+        icon: GithubIcon,
+      },
+    ],
+  },
 ];

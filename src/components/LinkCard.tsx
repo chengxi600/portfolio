@@ -1,8 +1,11 @@
 import { motion } from "motion/react";
 import "./ProjectCard.css";
+import "./LinkCard.css";
+import type { LinkInfo } from "../data/projects";
+import useButtonSfx from "../hooks/useButtonSfx";
 
 type LinkCardProps = {
-  label: string;
+  linkInfo: LinkInfo;
   width: number;
   scale: number;
   opacity: number;
@@ -12,12 +15,19 @@ type LinkCardProps = {
 
 const SELECTED_LEFT_EXTENSION = 18;
 
-function LinkCard({ label, width, scale, opacity, isSelected, onClick }: LinkCardProps) {
+function LinkCard({ linkInfo, width, scale, opacity, isSelected, onClick }: LinkCardProps) {
   const selectedOffset = isSelected ? SELECTED_LEFT_EXTENSION : 0;
+  const { playProjectHover } = useButtonSfx();
+
+  const handleClick = () => {
+    window.open(linkInfo.link, "_blank");
+    onClick();
+  };
 
   return (
     <motion.div
       className={`osuProjectCard osuProjectCard--link ${isSelected ? "osuProjectCard--selected" : ""}`}
+      onMouseEnter={playProjectHover}
       animate={{
         marginLeft: -selectedOffset,
         width: width + selectedOffset,
@@ -25,9 +35,10 @@ function LinkCard({ label, width, scale, opacity, isSelected, onClick }: LinkCar
         opacity,
       }}
       transition={{ type: "spring", stiffness: 220, damping: 24, mass: 0.7 }}
-      onClick={onClick}
+      onClick={handleClick}
     >
-      <span className="osuProjectCard__linkLabel">{label}</span>
+      <img key={linkInfo.icon} src={linkInfo.icon} alt="" />
+      <span className="osuProjectCard__linkLabel">{linkInfo.label}</span>
     </motion.div>
   );
 }
