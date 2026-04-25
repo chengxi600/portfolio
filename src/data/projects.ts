@@ -9,6 +9,8 @@ export type Project = {
   stack: string[];
   year: number;
   tag: "Project" | "Research" | "Open Source";
+  github?: string;
+  link?: string;
 };
 
 export const projects: Project[] = [
@@ -20,6 +22,7 @@ export const projects: Project[] = [
     stack: [ClerkIcon, ReactIcon, TsIcon],
     year: 2025,
     tag: "Project",
+    link: "https://lgbtq-senior-housing.vercel.app/",
   },
   {
     id: "rl-stuff",
@@ -28,6 +31,7 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2021,
     tag: "Project",
+    github: "https://github.com/chengxi600/RLStuff",
   },
   {
     id: "portfolio",
@@ -36,6 +40,7 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2026,
     tag: "Project",
+    github: "https://github.com/chengxi600/portfolio",
   },
   {
     id: "fillyb-exchange",
@@ -44,6 +49,8 @@ export const projects: Project[] = [
     stack: [ClerkIcon, TsIcon],
     year: 2026,
     tag: "Project",
+    github: "https://github.com/OtakuExchange",
+    link: "https://fillybexchange.vercel.app/",
   },
   {
     id: "satoru",
@@ -52,6 +59,8 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2026,
     tag: "Project",
+    github: "https://github.com/chengxi600/satoru-desktop",
+    link: "https://github.com/chengxi600/satoru-desktop/releases/tag/v1.1.0",
   },
   {
     id: "genshin-optimizer",
@@ -60,6 +69,8 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2024,
     tag: "Open Source",
+    github: "https://github.com/frzyc/genshin-optimizer",
+    link: "https://frzyc.github.io/genshin-optimizer/"
   },
   {
     id: "rpg-concept",
@@ -68,6 +79,8 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2018,
     tag: "Project",
+    github: "https://github.com/chengxi600/RPGConcept",
+    link: "https://chengxi600.medium.com/rpgconcept-hud-29cb36a64029"
   },
   {
     id: "conway",
@@ -76,6 +89,7 @@ export const projects: Project[] = [
     stack: [ClerkIcon, ReactIcon, TsIcon],
     year: 2018,
     tag: "Project",
+    github: "https://github.com/chengxi600/Java_Game-of-Life"
   },
   {
     id: "phirl",
@@ -84,5 +98,6 @@ export const projects: Project[] = [
     stack: [ReactIcon, TsIcon],
     year: 2026,
     tag: "Research",
+    github: "https://github.com/chengxi600/PHIRL-Kinova",
   }
 ];

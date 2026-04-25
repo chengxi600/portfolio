@@ -1,5 +1,5 @@
 .osuProjectCard {
-  height: 10vh;
+  height: 84px;
   width: 100%;
   display: flex;
   padding: 0.25vh 1.5vh;
@@ -12,6 +12,24 @@
   font-family: "Torus", system-ui, "Segoe UI", Roboto, sans-serif;
   background-color: #383B3B;
   gap: 10px;
+}
+
+.osuProjectCard--selected {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.85),
+    0 0 16px rgba(255, 255, 255, 0.6);
+}
+
+.osuProjectCard--link {
+  height: 56px;
+  justify-content: center;
+  padding: 0.2vh 1.5vh;
+}
+
+.osuProjectCard__linkLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .osuProjectCard__text {

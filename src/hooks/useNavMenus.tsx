@@ -45,7 +45,7 @@ function useNavMenus({
         title: "projects",
         color: "#7259D7",
         icon: <ComputerIcon style={{ color: "white" }} />,
-        clickSfx: playButtonClick,
+        clickSfx: playButtonEnter,
         onClick: () => {
           navigate("/projects");
         },

@@ -7,24 +7,30 @@ type ProjectCardProps = {
   width: number;
   scale: number;
   opacity: number;
-  isFocused: boolean;
+  isSelected: boolean;
   onClick: () => void;
 };
+
+const SELECTED_LEFT_EXTENSION = 18;
 
 function ProjectCard({
   project,
   width,
   scale,
   opacity,
-  isFocused,
+  isSelected,
   onClick,
 }: ProjectCardProps) {
+  const selectedOffset = isSelected ? SELECTED_LEFT_EXTENSION : 0;
+
   return (
     <motion.div
-      className="osuProjectCard"
+      className={`osuProjectCard ${isSelected ? "osuProjectCard--selected" : ""}`}
+      style={{
+      }}
       animate={{
-        marginLeft: 0,
-        width,
+        marginLeft: -selectedOffset,
+        width: width + selectedOffset,
         scale,
         opacity,
       }}

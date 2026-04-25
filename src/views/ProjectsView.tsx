@@ -1,24 +1,44 @@
 import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
 import "./ProjectsView.css";
 import ProjectCard from "../components/ProjectCard";
+import LinkCard from "../components/LinkCard";
 import useProjectWheel from "../hooks/useProjectWheel";
 import useProjectList from "../hooks/useProjectList";
 
-
-const ITEM_HEIGHT = 84;
+const PROJECT_ITEM_HEIGHT = 84;
+const PROJECT_LINK_HEIGHT = 56;
 
 function ProjectsView() {
-
-  const { items } = useProjectList();
+  const { items, expandedProjectId, setExpandedProjectId } = useProjectList();
   const {
     listRef,
     listWidth,
     trackOffset,
     itemStates,
-    focusedIndex,
     handleWheel,
     handleItemClick,
-  } = useProjectWheel(items, ITEM_HEIGHT);
+  } = useProjectWheel(items, PROJECT_ITEM_HEIGHT, {
+    getItemHeight: (item) =>
+      item.type === "project" ? PROJECT_ITEM_HEIGHT : PROJECT_LINK_HEIGHT,
+    isFocusable: (item) => item.type === "project",
+  });
+  const pendingFocusId = useRef<string | null>(null);
+
+  useEffect(() => {
+    const targetId = pendingFocusId.current;
+    if (!targetId) {
+      return;
+    }
+    const targetIndex = itemStates.findIndex(
+      (itemState) =>
+        itemState.item.type === "project" && itemState.item.id === targetId,
+    );
+    if (targetIndex >= 0) {
+      handleItemClick(targetIndex);
+      pendingFocusId.current = null;
+    }
+  }, [handleItemClick, itemStates]);
 
   return (
     <div className="osuProjectsView">
@@ -27,27 +47,49 @@ function ProjectsView() {
         <p>Replace this with your detail panel.</p>
       </section>
 
-      <section
-        className="osuProjectWheel"
-        ref={listRef}
-        onWheel={handleWheel}
-      >
+      <section className="osuProjectWheel" ref={listRef} onWheel={handleWheel}>
         <motion.div
           className="osuProjectWheel__track"
           animate={{ y: trackOffset }}
-          transition={{ type: "spring", stiffness: 180, damping: 28, mass: 0.6 }}
+          transition={{
+            type: "spring",
+            stiffness: 180,
+            damping: 28,
+            mass: 0.6,
+          }}
         >
           {itemStates.map((itemState) => {
-            const isFocused = itemState.index === focusedIndex;
+            const item = itemState.item;
+
+            if (item.type === "project") {
+              return (
+                <ProjectCard
+                  key={`${item.id}-${itemState.index}`}
+                  project={item.project}
+                  width={listWidth}
+                  scale={itemState.scale}
+                  opacity={itemState.opacity}
+                  isSelected={item.id === expandedProjectId}
+                  onClick={() => {
+                    setExpandedProjectId(item.id);
+                    pendingFocusId.current = item.id;
+                  }}
+                />
+              );
+            }
+
             return (
-              <ProjectCard
-                key={`${itemState.item.id}-${itemState.index}`}
-                project={itemState.item}
+              <LinkCard
+                key={`${item.id}-${itemState.index}`}
+                label={item.label}
                 width={listWidth}
                 scale={itemState.scale}
                 opacity={itemState.opacity}
-                isFocused={isFocused}
-                onClick={() => handleItemClick(itemState.distance)}
+                isSelected={item.parentId === expandedProjectId}
+                onClick={() => {
+                  pendingFocusId.current = item.parentId;
+                  window.open(item.url, "_blank");
+                }}
               />
             );
           })}
