@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import "./ProjectCard.css";
 import "./LinkCard.css";
-import type { LinkInfo } from "../data/projects";
-import useButtonSfx from "../hooks/useButtonSfx";
+import type { LinkInfo } from "../../data/projects";
+import useButtonSfx from "../../hooks/useButtonSfx";
 
 type LinkCardProps = {
   linkInfo: LinkInfo;

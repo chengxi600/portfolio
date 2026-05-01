@@ -4,18 +4,20 @@ import { projects, type LinkInfo, type Project } from "../data/projects";
 export type ProjectSortKey = "default" | "title" | "year";
 export type ProjectTagFilter = Project["tag"] | "All";
 
-export type ProjectListItem =
-  | {
-      type: "project";
-      id: string;
-      project: Project;
-    }
-  | {
-      type: "link";
-      id: string;
-      parentId: string;
-      linkInfo: LinkInfo;
-    };
+export type ProjectItem = {
+  type: "project";
+  id: string;
+  project: Project;
+};
+
+export type ProjectLinkItem = {
+  type: "link";
+  id: string;
+  parentId: string;
+  linkInfo: LinkInfo;
+};
+
+export type ProjectListItem = ProjectItem | ProjectLinkItem;
 
 type UseProjectListOptions = {
   initialSortKey?: ProjectSortKey;
@@ -27,9 +29,10 @@ function useProjectList({
   initialTagFilter = "All",
 }: UseProjectListOptions = {}) {
   const [sortKey, setSortKey] = useState<ProjectSortKey>(initialSortKey);
-  const [tagFilter, setTagFilter] = useState<ProjectTagFilter>(initialTagFilter);
+  const [tagFilter, setTagFilter] =
+    useState<ProjectTagFilter>(initialTagFilter);
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(
-    projects[0]?.id ?? null,
+    null,
   );
 
   const items = useMemo<ProjectListItem[]>(() => {
@@ -74,10 +77,20 @@ function useProjectList({
     });
   }, [expandedProjectId, sortKey, tagFilter]);
 
+  const selectedProject: Project | null = useMemo(() => {
+    const item = items.find(
+      (item): item is ProjectItem =>
+        item.type === "project" && item.id === expandedProjectId,
+    );
+
+    return item ? item.project : null;
+  }, [items, expandedProjectId]);
+
   return {
     items,
     expandedProjectId,
     setExpandedProjectId,
+    selectedProject,
     sortKey,
     setSortKey,
     tagFilter,

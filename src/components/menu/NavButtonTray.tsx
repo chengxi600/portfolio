@@ -2,8 +2,8 @@ import MenuButton from "./MenuButton";
 import NavButton from "./NavButton";
 import { useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
-import useButtonSfx from "../hooks/useButtonSfx";
-import useNavMenus from "../hooks/useNavMenus";
+import useButtonSfx from "../../hooks/useButtonSfx";
+import useNavMenus from "../../hooks/useNavMenus";
 
 const menuButtonTransition = {
   type: "tween" as const,

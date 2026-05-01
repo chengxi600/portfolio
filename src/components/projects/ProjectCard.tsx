@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import type { Project } from "../data/projects";
+import type { Project } from "../../data/projects";
 import "./ProjectCard.css";
-import useButtonSfx from "../hooks/useButtonSfx";
+import useButtonSfx from "../../hooks/useButtonSfx";
+import { ProjectTag } from "./ProjectTag";
 
 type ProjectCardProps = {
   project: Project;
@@ -53,19 +54,11 @@ function ProjectCard({
       </div>
       <div className="osuProjectCard__stack">
         <ProjectTag tag={project.tag} />
-        {project.stack.map((icon) => (
-          <img key={icon} src={icon} alt="" />
+        {project.stack.map((tech) => (
+          <img key={tech.label} src={tech.icon} alt="" />
         ))}
       </div>
     </motion.div>
-  );
-}
-
-function ProjectTag({ tag }: { tag: string }) {
-  return (
-    <div className="osuProjectCard__tag">
-      <span className="osuProjectCard__tag__text">{tag.toUpperCase()}</span>
-    </div>
   );
 }
 

@@ -119,7 +119,7 @@ function useProjectWheel<T>(
   );
 
   const handleWheel = useCallback(
-    (event: WheelEvent<HTMLDivElement>) => {
+    (event: WheelEvent<HTMLElement>) => {
       event.preventDefault();
       setScrollY((value) => clampScroll(value + event.deltaY));
     },

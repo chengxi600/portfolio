@@ -12,14 +12,24 @@ export type LinkInfo = {
   icon: string;
 };
 
+export type TechIcon = {
+  icon: string;
+  label: string;
+};
+
+export type ProjectDetails = {
+  description: string;
+};
+
 export type Project = {
   id: string;
   title: string;
   subtitle: string;
-  stack: string[];
+  stack: TechIcon[];
   year: number;
   tag: "Project" | "Research" | "Open Source";
   links: LinkInfo[];
+  details: ProjectDetails;
 };
 
 export const projects: Project[] = [
@@ -28,7 +38,11 @@ export const projects: Project[] = [
     title: "LGBT Senior Housing",
     subtitle:
       "Website for The Pryde, a LGBT senior housing community in Boston",
-    stack: [ClerkIcon, ReactIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2025,
     tag: "Project",
     links: [
@@ -38,12 +52,19 @@ export const projects: Project[] = [
         icon: WebsiteIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
   {
     id: "rl-stuff",
     title: "RL Playground",
     subtitle: "Collection of reinforcement learning baseline implementations",
-    stack: [ReactIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2021,
     tag: "Project",
     links: [
@@ -53,12 +74,19 @@ export const projects: Project[] = [
         icon: GithubIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
   {
     id: "portfolio",
     title: "Portfolio",
     subtitle: "Personal website inspired by osu!'s UI",
-    stack: [ReactIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2026,
     tag: "Project",
     links: [
@@ -68,12 +96,19 @@ export const projects: Project[] = [
         icon: GithubIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
   {
     id: "fillyb-exchange",
     title: "FillyB Exchange",
     subtitle: "Fake betting website for amateur esports leagues",
-    stack: [ClerkIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2026,
     tag: "Project",
     links: [
@@ -88,12 +123,19 @@ export const projects: Project[] = [
         icon: WebsiteIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
   {
     id: "satoru",
     title: "Satoru Desktop App",
     subtitle: "Anime hand gesture visualizer",
-    stack: [ReactIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2026,
     tag: "Project",
     links: [
@@ -108,12 +150,19 @@ export const projects: Project[] = [
         icon: DownloadIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
   {
     id: "genshin-optimizer",
     title: "Genshin Optimizer",
     subtitle: "Contributed to a Genshin Impact optimizer tool",
-    stack: [ReactIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2024,
     tag: "Open Source",
     links: [
@@ -128,12 +177,19 @@ export const projects: Project[] = [
         icon: WebsiteIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
   {
     id: "rpg-concept",
     title: "RPG Concept",
     subtitle: "Realm of the Mad God clone concept",
-    stack: [ReactIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2018,
     tag: "Project",
     links: [
@@ -148,12 +204,19 @@ export const projects: Project[] = [
         icon: BlogIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
   {
     id: "conway",
     title: "Conway's Game of Life",
     subtitle: "My very first project, Conway's Game of Life in Java",
-    stack: [ClerkIcon, ReactIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2018,
     tag: "Project",
     links: [
@@ -163,13 +226,20 @@ export const projects: Project[] = [
         icon: GithubIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
   {
     id: "phirl",
     title: "PHIRL",
     subtitle:
       "Progress heuristic inverse reinforcement learning with Robot Study",
-    stack: [ReactIcon, TsIcon],
+    stack: [
+      { label: "Clerk", icon: ClerkIcon },
+      { label: "React", icon: ReactIcon },
+      { label: "Typescript", icon: TsIcon },
+    ],
     year: 2026,
     tag: "Research",
     links: [
@@ -179,5 +249,8 @@ export const projects: Project[] = [
         icon: GithubIcon,
       },
     ],
+    details: {
+      description: "test",
+    },
   },
 ];
