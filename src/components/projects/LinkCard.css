@@ -1,6 +1,7 @@
 .osuProjectCard--link {
   height: 40px;
-  padding: 0.2vh 1.5vh;
+  /* Use em so padding scales with font-size */
+  padding: 0.2em 0.9em;
   display: flex;
   flex-direction: row;
   align-items: center;

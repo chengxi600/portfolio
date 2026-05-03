@@ -2,7 +2,12 @@
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  background: radial-gradient(circle at top, #1b1b25 0%, #0a0a10 65%);
+  background-image:
+    radial-gradient(circle at top, rgba(27, 27, 37, 0.75) 0%, rgba(10, 10, 16, 0.9) 65%),
+    url("../assets/textures/projects/background.jpg");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
   justify-content: space-between;
 }
 

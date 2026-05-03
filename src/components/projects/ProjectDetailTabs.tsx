@@ -4,6 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import { useState } from "react";
 import type { TechIcon } from "../../data/projects";
 import type { Project } from "../../data/projects";
+import "./ProjectDetailTabs.css";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -20,17 +21,11 @@ export function ProjectDetailTabs({ project }: { project: Project }) {
 
   return (
     <>
-      <Box sx={{ width: "100%" }}>
-        <Box>
-          <Tabs
-            value={infoTabIdx}
-            onChange={handleChangeTab}
-            aria-label="info tab"
-          >
-            <Tab label="Tech Stack" />
-            <Tab label="Description" />
-          </Tabs>
-        </Box>
+      <Box className="osuProjectDetailTabs">
+        <Tabs value={infoTabIdx} onChange={handleChangeTab} aria-label="info tab">
+          <Tab label="Tech Stack" />
+          <Tab label="Description" />
+        </Tabs>
         <InfoTab value={infoTabIdx} index={0}>
           <ProjectTechStack stack={project.stack} />
         </InfoTab>
@@ -52,16 +47,19 @@ function InfoTab(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: { xs: 1.5, md: 3 } }}>{children}</Box>}
+      {value === index && <Box className="osuProjectDetailTabs__panel">{children}</Box>}
     </div>
   );
 }
 
 function ProjectTechStack({ stack }: { stack: TechIcon[] }) {
   return (
-    <div>
+    <div className="osuProjectTechStack">
       {stack.map((techIcon) => (
-        <div>{techIcon.label}</div>
+        <div key={techIcon.label} className="osuProjectTechStack__item">
+          <img className="osuProjectTechStack__icon" src={techIcon.icon} alt="" />
+          <span className="osuProjectTechStack__label">{techIcon.label}</span>
+        </div>
       ))}
     </div>
   );

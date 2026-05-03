@@ -1,8 +1,13 @@
 import "./ProjectCard.css";
 
-export function ProjectTag({ tag }: { tag: string }) {
+type ProjectTagProps = {
+  tag: string;
+  style?: React.CSSProperties;
+};
+
+export function ProjectTag({ tag, style }: ProjectTagProps) {
   return (
-    <div className="osuProjectCard__tag">
+    <div className="osuProjectCard__tag" style={{ ...style }}>
       <span className="osuProjectCard__tag__text">{tag.toUpperCase()}</span>
     </div>
   );

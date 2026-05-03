@@ -1,0 +1,100 @@
+.osuProjectDetails__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  --osu-parallelogram-slant: clamp(14px, 3vw, 22px);
+  position: relative;
+  isolation: isolate;
+  padding: 10px 12px;
+  padding-right: calc(12px + var(--osu-parallelogram-slant));
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@supports (clip-path: polygon(0 0)) {
+  .osuProjectDetails__content {
+    background-color: transparent;
+  }
+
+  .osuProjectDetails__content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(55, 55, 55, 0.5);
+    border-radius: inherit;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      calc(100% - var(--osu-parallelogram-slant)) 100%,
+      0 100%
+    );
+  }
+}
+
+@supports not (clip-path: polygon(0 0)) {
+  .osuProjectDetails__content {
+    background-color: #383B3B;
+  }
+}
+
+.osuProjectDetails__title {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.osuProjectDetails__subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.35;
+}
+
+.osuProjectDetails__links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.osuProjectDetails__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.45em 0.75em;
+  text-decoration: none;
+  background-color: rgba(55, 55, 55, 0.3);
+  border-radius: 8px;
+  transition:
+    transform 140ms ease,
+    background-color 140ms ease;
+}
+
+.osuProjectDetails__link:hover {
+  transform: translateY(-1px);
+}
+
+.osuProjectDetails__linkLabel {
+  font-size: 0.85rem;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.osuProjectDetails__linkIcon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 600px) {
+  .osuProjectDetails__title {
+    font-size: 1.25rem;
+  }
+
+  .osuProjectDetails__linkLabel {
+    font-size: 0.8rem;
+  }
+}
+

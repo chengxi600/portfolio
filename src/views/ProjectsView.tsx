@@ -9,7 +9,7 @@ function ProjectsView() {
 
   return (
     <div className="osuProjectsView">
-      <ProjectDetails project={selectedProject} />}
+      <ProjectDetails project={selectedProject} />
       <ProjectWheel
         items={items}
         expandedProjectId={expandedProjectId}
