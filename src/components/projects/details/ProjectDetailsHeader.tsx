@@ -5,7 +5,7 @@ import "./ProjectDetailsHeader.css";
 function ProjectDetailsHeader({ project }: { project: Project }) {
   return (
     <div className="osuProjectDetails__content">
-      <ProjectTag tag={project.tag} style={{ fontSize: "0.6rem" }} />
+      <ProjectTag tag={project.tag} style={{ fontSize: "0.5rem" }} />
       <h1 className="osuProjectDetails__title">
         {project.title} ({project.year})
       </h1>

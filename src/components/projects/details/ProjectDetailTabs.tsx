@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { TechIcon } from "../../../data/projects";
 import type { Project } from "../../../data/projects";
 import "./ProjectDetailTabs.css";
+import { motion } from "motion/react";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -22,7 +23,11 @@ export function ProjectDetailTabs({ project }: { project: Project }) {
   return (
     <>
       <Box className="osuProjectDetailTabs">
-        <Tabs value={infoTabIdx} onChange={handleChangeTab} aria-label="info tab">
+        <Tabs
+          value={infoTabIdx}
+          onChange={handleChangeTab}
+          aria-label="info tab"
+        >
           <Tab label="Tech Stack" />
           <Tab label="Description" />
         </Tabs>
@@ -58,11 +63,28 @@ function InfoTab(props: TabPanelProps) {
 }
 
 function ProjectTechStack({ stack }: { stack: TechIcon[] }) {
+  const iconVariants = {
+    initial: { y: 0 },
+    hover: {
+      y: [0, -6, 2, 0],
+      transition: {
+        duration: 0.4,
+        repeat: 2,
+      },
+    },
+  };
+
   return (
     <div className="osuProjectTechStack">
       {stack.map((techIcon) => (
         <div key={techIcon.label} className="osuProjectTechStack__item">
-          <img className="osuProjectTechStack__icon" src={techIcon.icon} alt="" />
+          <motion.div variants={iconVariants} initial="initial" animate="initial" whileHover="hover">
+            <img
+              className="osuProjectTechStack__icon"
+              src={techIcon.icon}
+              alt=""
+            />
+          </motion.div>
           <span className="osuProjectTechStack__label">{techIcon.label}</span>
         </div>
       ))}

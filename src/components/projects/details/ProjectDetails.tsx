@@ -10,7 +10,7 @@ function ProjectDetails({ project }: { project: Project | null }) {
   }
   return (
     <div className="osuProjectsDetails">
-      <ProjectCarousel />
+      <ProjectCarousel items={project.gallery} />
       <ProjectDetailsHeader project={project} />
       <ProjectDetailTabs project={project} />
     </div>

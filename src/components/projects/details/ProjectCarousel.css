@@ -36,8 +36,8 @@
 .projectCarousel__slide {
   flex: 0 0 auto;
   width: 100%;
-  /* Bigger like before, but capped to avoid clipping the header */
-  height: clamp(240px, 46vh, 460px);
+  /* Sized to leave room for the header + tabs within the 90vh details box */
+  height: clamp(220px, 46vh, 460px);
 }
 
 @media (max-width: 900px) {
@@ -46,7 +46,7 @@
   }
 
   .projectCarousel__slide {
-    height: clamp(200px, 34vh, 360px);
+    height: clamp(200px, 36vh, 360px);
   }
 }
 

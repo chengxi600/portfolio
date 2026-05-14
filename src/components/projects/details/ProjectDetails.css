@@ -1,13 +1,15 @@
 .osuProjectsDetails {
+  --osu-info-block-height: clamp(118px, 16vh, 180px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   padding-right: 32px;
-  height: 100%;
+  height: 86vh;
+  max-height: 86vh;
   min-height: 0;
   min-width: 0;
   overflow: hidden;
-  padding-bottom: clamp(12px, 2vh, 22px);
+  padding-bottom: clamp(10px, 2vh, 20px);
 }
 
 .osuProjectsDetails h1 {
@@ -18,6 +20,7 @@
   .osuProjectsDetails {
     padding-right: 0;
     height: auto;
+    max-height: none;
     overflow: visible;
   }
 }

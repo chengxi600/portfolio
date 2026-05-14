@@ -3,21 +3,25 @@
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
-  /* This makes the component's height stable */
-  --osu-tabs-panel-height: 220px;
+  flex: 0 0 var(--osu-info-block-height);
+  height: var(--osu-info-block-height);
+  box-sizing: border-box;
 }
 
 /* Scope MUI overrides to this component */
+.osuProjectDetailTabs .MuiTabs-root {
+  min-height: 26px;
+}
+
 .osuProjectDetailTabs .MuiTabs-indicator {
   background-color: #ffffff;
 }
 
 .osuProjectDetailTabs .MuiTab-root {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.62rem;
-  min-height: 32px;
-  padding: 6px 8px;
+  font-size: 0.56rem;
+  min-height: 26px;
+  padding: 4px 6px;
 }
 
 .osuProjectDetailTabs .MuiTab-root.Mui-selected {
@@ -25,7 +29,8 @@
 }
 
 .osuProjectDetailTabs__panes {
-  height: var(--osu-tabs-panel-height);
+  flex: 1 1 auto;
+  min-height: 0;
   position: relative;
 }
 
@@ -40,24 +45,31 @@
 }
 
 .osuProjectDetailTabs__panel {
-  --osu-parallelogram-slant: clamp(14px, 3vw, 22px);
+  --osu-parallelogram-slant: clamp(12px, 2.4vw, 18px);
   position: relative;
   isolation: isolate;
   height: 100%;
-  padding: 0.45em 0.9em;
-  padding-right: calc(0.9em + var(--osu-parallelogram-slant));
+  padding: 0.7em 0.95em;
+  padding-right: calc(0.95em + var(--osu-parallelogram-slant));
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.82rem;
-  line-height: 1.45;
-  border-radius: 12px;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  border-radius: 10px;
   overflow: auto;
+  box-sizing: border-box;
   /* Prevent width/position shift when scrollbars appear */
   scrollbar-gutter: stable;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .osuProjectDetailTabs {
-    --osu-tabs-panel-height: 200px;
+    flex: 0 0 auto;
+    height: auto;
+  }
+
+  .osuProjectDetailTabs__panes {
+    height: 200px;
+    flex: 0 0 200px;
   }
 }
 
@@ -93,7 +105,7 @@
   /* 3 fixed rows, fill top-to-bottom then create new columns */
   grid-template-rows: repeat(3, auto);
   grid-auto-flow: column;
-  grid-auto-columns: minmax(160px, 1fr);
+  grid-auto-columns: minmax(140px, 1fr);
   gap: 2px;
   align-items: center;
   align-content: start;
@@ -104,26 +116,25 @@
 
 @media (max-width: 600px) {
   .osuProjectTechStack {
-    grid-auto-columns: minmax(130px, 1fr);
-    gap: 8px;
+    grid-auto-columns: minmax(120px, 1fr);
+    gap: 6px;
   }
 }
 
 .osuProjectTechStack__item {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
-  padding: 4px 6px;
+  padding: 2px 4px;
 }
 
 .osuProjectTechStack__icon {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .osuProjectTechStack__label {
-  font-size: 0.78rem;
+  font-size: 0.68rem;
   color: #ffffff;
 }
-
