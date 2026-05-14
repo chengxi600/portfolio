@@ -2,8 +2,8 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { useState } from "react";
-import type { TechIcon } from "../../data/projects";
-import type { Project } from "../../data/projects";
+import type { TechIcon } from "../../../data/projects";
+import type { Project } from "../../../data/projects";
 import "./ProjectDetailTabs.css";
 
 interface TabPanelProps {
@@ -26,12 +26,14 @@ export function ProjectDetailTabs({ project }: { project: Project }) {
           <Tab label="Tech Stack" />
           <Tab label="Description" />
         </Tabs>
-        <InfoTab value={infoTabIdx} index={0}>
-          <ProjectTechStack stack={project.stack} />
-        </InfoTab>
-        <InfoTab value={infoTabIdx} index={1}>
-          {project.details.description}
-        </InfoTab>
+        <div className="osuProjectDetailTabs__panes">
+          <InfoTab value={infoTabIdx} index={0}>
+            <ProjectTechStack stack={project.stack} />
+          </InfoTab>
+          <InfoTab value={infoTabIdx} index={1}>
+            {project.details.description}
+          </InfoTab>
+        </div>
       </Box>
     </>
   );
@@ -39,15 +41,18 @@ export function ProjectDetailTabs({ project }: { project: Project }) {
 
 function InfoTab(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
+  const isActive = value === index;
   return (
     <div
+      className="osuProjectDetailTabs__tabpanel"
       role="tabpanel"
-      hidden={value !== index}
+      data-active={isActive ? "true" : "false"}
+      aria-hidden={isActive ? undefined : true}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box className="osuProjectDetailTabs__panel">{children}</Box>}
+      <Box className="osuProjectDetailTabs__panel">{children}</Box>
     </div>
   );
 }

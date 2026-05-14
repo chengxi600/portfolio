@@ -36,7 +36,18 @@
 .projectCarousel__slide {
   flex: 0 0 auto;
   width: 100%;
-  height: 50vh;
+  /* Bigger like before, but capped to avoid clipping the header */
+  height: clamp(240px, 46vh, 460px);
+}
+
+@media (max-width: 900px) {
+  .projectCarousel {
+    width: 100%;
+  }
+
+  .projectCarousel__slide {
+    height: clamp(200px, 34vh, 360px);
+  }
 }
 
 .projectCarousel__image {

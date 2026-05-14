@@ -1,0 +1,15 @@
+.osuProjectWheel {
+  position: relative;
+  overflow: hidden;
+  width: 40vw;
+  height: 100%;
+  overscroll-behavior: contain;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.osuProjectWheel__track {
+  position: relative;
+  z-index: 0;
+  margin-left: 5vw;
+}

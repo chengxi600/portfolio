@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
-import type { Project } from "../../data/projects";
+import type { Project } from "../../../data/projects";
 import "./ProjectCard.css";
-import useButtonSfx from "../../hooks/useButtonSfx";
-import { ProjectTag } from "./ProjectTag";
+import useButtonSfx from "../../../hooks/useButtonSfx";
+import { ProjectTag } from "../ProjectTag";
 
 type ProjectCardProps = {
   project: Project;

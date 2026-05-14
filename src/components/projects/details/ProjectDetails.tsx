@@ -1,7 +1,8 @@
 import { ProjectDetailTabs } from "./ProjectDetailTabs";
-import type { Project } from "../../data/projects";
+import type { Project } from "../../../data/projects";
 import ProjectCarousel from "./ProjectCarousel";
 import ProjectDetailsHeader from "./ProjectDetailsHeader";
+import "./ProjectDetails.css";
 
 function ProjectDetails({ project }: { project: Project | null }) {
   if (!project) {

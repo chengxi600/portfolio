@@ -48,21 +48,3 @@
   width: 16px;
   height: 16px;
 }
-
-.osuProjectCard__tag {
-  display: flex;
-  gap: 8px;
-  /* Tag padding scales with tag font-size (see ProjectTag fontSize prop) */
-  padding: 0.5em 1em;
-  border-radius: 16px;
-  background-color: rgba(30, 30, 30, 0.9);
-  width: fit-content;
-  font-size: 8px;
-}
-
-.osuProjectCard__tag__text {
-  font-size: 1em;
-  font-weight: 600;
-  line-height: 0.8;
-  color: #ffffff;
-}

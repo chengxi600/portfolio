@@ -1,6 +1,5 @@
-'use client';
 import { animate, motion, useMotionValue } from 'motion/react';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './ProjectCarousel.css';
 
 export const items = [

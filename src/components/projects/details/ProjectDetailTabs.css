@@ -1,8 +1,11 @@
 .osuProjectDetailTabs {
   width: 100%;
   color: #ffffff;
-  /* Keep Tech Stack + Description the same height */
-  --osu-tabs-panel-height: clamp(140px, 12vh, 320px);
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  /* This makes the component's height stable */
+  --osu-tabs-panel-height: 220px;
 }
 
 /* Scope MUI overrides to this component */
@@ -12,27 +15,50 @@
 
 .osuProjectDetailTabs .MuiTab-root {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.7rem;
-  min-height: 36px;
-  padding: 8px 10px;
+  font-size: 0.62rem;
+  min-height: 32px;
+  padding: 6px 8px;
 }
 
 .osuProjectDetailTabs .MuiTab-root.Mui-selected {
   color: #ffffff;
 }
 
+.osuProjectDetailTabs__panes {
+  height: var(--osu-tabs-panel-height);
+  position: relative;
+}
+
+.osuProjectDetailTabs__tabpanel {
+  position: absolute;
+  inset: 0;
+}
+
+.osuProjectDetailTabs__tabpanel[data-active="false"] {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .osuProjectDetailTabs__panel {
   --osu-parallelogram-slant: clamp(14px, 3vw, 22px);
   position: relative;
   isolation: isolate;
-  height: var(--osu-tabs-panel-height);
-  padding: 0.5em 1em;
-  padding-right: calc(1em + var(--osu-parallelogram-slant));
+  height: 100%;
+  padding: 0.45em 0.9em;
+  padding-right: calc(0.9em + var(--osu-parallelogram-slant));
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   line-height: 1.45;
   border-radius: 12px;
   overflow: auto;
+  /* Prevent width/position shift when scrollbars appear */
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 600px) {
+  .osuProjectDetailTabs {
+    --osu-tabs-panel-height: 200px;
+  }
 }
 
 @supports (clip-path: polygon(0 0)) {
@@ -68,7 +94,7 @@
   grid-template-rows: repeat(3, auto);
   grid-auto-flow: column;
   grid-auto-columns: minmax(160px, 1fr);
-  gap: 10px;
+  gap: 2px;
   align-items: center;
   align-content: start;
   max-width: 100%;
@@ -88,7 +114,7 @@
   flex-direction: row;
   gap: 8px;
   align-items: center;
-  padding: 8px 10px;
+  padding: 4px 6px;
 }
 
 .osuProjectTechStack__icon {
@@ -97,7 +123,7 @@
 }
 
 .osuProjectTechStack__label {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: #ffffff;
 }
 

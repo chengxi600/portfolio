@@ -1,7 +1,7 @@
 import "./ProjectsView.css";
-import ProjectWheel from "../components/projects/ProjectWheel";
+import ProjectWheel from "../components/projects/wheel/ProjectWheel";
 import useProjectList from "../hooks/useProjectList";
-import ProjectDetails from "../components/projects/ProjectDetails";
+import ProjectDetails from "../components/projects/details/ProjectDetails";
 
 function ProjectsView() {
   const { items, expandedProjectId, setExpandedProjectId, selectedProject } =
@@ -9,7 +9,9 @@ function ProjectsView() {
 
   return (
     <div className="osuProjectsView">
-      <ProjectDetails project={selectedProject} />
+      <div className="osuProjectsDetailsSlot">
+        <ProjectDetails project={selectedProject} />
+      </div>
       <ProjectWheel
         items={items}
         expandedProjectId={expandedProjectId}
