@@ -1,6 +1,6 @@
 import { animate, motion, useMotionValue } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import type { GalleryItem } from '../../../data/projects';
+import type { GalleryItem } from '@/data/projects';
 import './ProjectCarousel.css';
 
 export default function ProjectCarousel({ items }: { items: GalleryItem[] }) {

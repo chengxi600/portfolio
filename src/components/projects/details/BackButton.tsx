@@ -1,6 +1,6 @@
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { motion } from "motion/react";
-import useButtonSfx from "../../../hooks/useButtonSfx";
+import useButtonSfx from "@/hooks/useButtonSfx";
 import "./BackButton.css";
 
 function BackButton({ onClick }: { onClick: () => void }) {

@@ -1,5 +1,5 @@
-import Background from "../assets/textures/menu/background.jpg";
-import NavButtonTray from "../components/menu/NavButtonTray";
+import Background from "@/assets/textures/menu/background.jpg";
+import NavButtonTray from "@/components/menu/NavButtonTray";
 import type { CSSProperties } from "react";
 import "./MenuView.css";
 

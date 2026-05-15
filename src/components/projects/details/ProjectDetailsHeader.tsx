@@ -1,5 +1,5 @@
-import type { Project } from "../../../data/projects";
-import { ProjectTag } from "../ProjectTag";
+import type { Project } from "@/data/projects";
+import { ProjectTag } from "@/components/projects/ProjectTag";
 import "./ProjectDetailsHeader.css";
 
 function ProjectDetailsHeader({ project }: { project: Project }) {

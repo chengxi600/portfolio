@@ -1,8 +1,8 @@
-import ClerkIcon from "../../assets/textures/projects/clerk.svg";
-import ReactIcon from "../../assets/textures/projects/react.svg";
-import TsIcon from "../../assets/textures/projects/ts.svg";
-import GithubIcon from "../../assets/textures/projects/github.svg";
-import DownloadIcon from "../../assets/textures/projects/download.svg";
+import ClerkIcon from "@/assets/textures/projects/clerk.svg";
+import ReactIcon from "@/assets/textures/projects/react.svg";
+import TsIcon from "@/assets/textures/projects/ts.svg";
+import GithubIcon from "@/assets/textures/projects/github.svg";
+import DownloadIcon from "@/assets/textures/projects/download.svg";
 import type { Project } from "./types";
 
 const satoru: Project = {

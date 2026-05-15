@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import Logo from "../../assets/textures/menu/logo.png";
-import LogoBackground from "../../assets/textures/menu/logo_background.jpg";
+import Logo from "@/assets/textures/menu/logo.png";
+import LogoBackground from "@/assets/textures/menu/logo_background.jpg";
 import { useMemo, useState } from "react";
 import "./MenuButton.css";
 import type { CSSProperties } from "react";

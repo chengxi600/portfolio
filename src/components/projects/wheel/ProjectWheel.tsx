@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { useRef, useEffect } from "react";
-import useButtonSfx from "../../../hooks/useButtonSfx";
-import { type ProjectListItem } from "../../../hooks/useProjectList";
-import useProjectWheel from "../../../hooks/useProjectWheel";
+import useButtonSfx from "@/hooks/useButtonSfx";
+import { type ProjectListItem } from "@/hooks/useProjectList";
+import useProjectWheel from "@/hooks/useProjectWheel";
 import LinkCard from "./LinkCard";
 import ProjectCard from "./ProjectCard";
 import "./ProjectWheel.css";

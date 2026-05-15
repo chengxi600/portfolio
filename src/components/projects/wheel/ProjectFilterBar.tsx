@@ -6,7 +6,7 @@ import type {
   ProjectSortKey,
   ProjectTagFilter,
   ProjectStackFilter,
-} from "../../../hooks/useProjectList";
+} from "@/hooks/useProjectList";
 import "./ProjectFilterBar.css";
 
 const TAG_OPTIONS: ProjectTagFilter[] = ["All", "Project", "Research", "Open Source"];

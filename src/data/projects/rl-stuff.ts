@@ -1,7 +1,7 @@
-import ClerkIcon from "../../assets/textures/projects/clerk.svg";
-import ReactIcon from "../../assets/textures/projects/react.svg";
-import TsIcon from "../../assets/textures/projects/ts.svg";
-import GithubIcon from "../../assets/textures/projects/github.svg";
+import ClerkIcon from "@/assets/textures/projects/clerk.svg";
+import ReactIcon from "@/assets/textures/projects/react.svg";
+import TsIcon from "@/assets/textures/projects/ts.svg";
+import GithubIcon from "@/assets/textures/projects/github.svg";
 import type { Project } from "./types";
 
 const rlStuff: Project = {

@@ -2,8 +2,8 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { useState } from "react";
-import type { TechIcon } from "../../../data/projects";
-import type { Project } from "../../../data/projects";
+import type { TechIcon } from "@/data/projects";
+import type { Project } from "@/data/projects";
 import "./ProjectDetailTabs.css";
 import { motion } from "motion/react";
 

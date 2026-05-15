@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { projects, type LinkInfo, type Project, type ProjectTag } from "../data/projects";
+import { projects, type LinkInfo, type Project, type ProjectTag } from "@/data/projects";
 
 export type ProjectSortKey = "default" | "title" | "year";
 export type ProjectTagFilter = ProjectTag | "All";

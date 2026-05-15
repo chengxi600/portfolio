@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
 import "./ProjectsView.css";
-import ProjectWheel from "../components/projects/wheel/ProjectWheel";
-import ProjectFilterBar from "../components/projects/wheel/ProjectFilterBar";
-import useProjectList from "../hooks/useProjectList";
-import ProjectDetails from "../components/projects/details/ProjectDetails";
-import BackButton from "../components/projects/details/BackButton";
+import ProjectWheel from "@/components/projects/wheel/ProjectWheel";
+import ProjectFilterBar from "@/components/projects/wheel/ProjectFilterBar";
+import useProjectList from "@/hooks/useProjectList";
+import ProjectDetails from "@/components/projects/details/ProjectDetails";
+import BackButton from "@/components/projects/details/BackButton";
 import { useNavigate } from "react-router-dom";
 
 type ProjectsViewStyle = CSSProperties & { ["--osu-projects-bg"]?: string };
