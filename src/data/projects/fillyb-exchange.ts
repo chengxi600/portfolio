@@ -1,18 +1,30 @@
-import ClerkIcon from "@/assets/textures/projects/clerk.svg";
+import type { Project } from "./types";
+
+// Stack Icons
 import ReactIcon from "@/assets/textures/projects/react.svg";
 import TsIcon from "@/assets/textures/projects/ts.svg";
+import ClerkIcon from "@/assets/textures/projects/clerk.svg";
+import NeonIcon from "@/assets/textures/projects/neon.svg";
+import KotlinIcon from "@/assets/textures/projects/kotlin.svg";
+import GAIcon from "@/assets/textures/projects/ga.svg";
+
+// Link Icons
 import GithubIcon from "@/assets/textures/projects/github.svg";
 import WebsiteIcon from "@/assets/textures/projects/website.svg";
-import type { Project } from "./types";
+
+// Images
 
 const fillybExchange: Project = {
   id: "fillyb-exchange",
   title: "FillyB Exchange",
   subtitle: "Fake betting website for amateur esports leagues",
   stack: [
-    { label: "Clerk", icon: ClerkIcon },
     { label: "React", icon: ReactIcon },
     { label: "Typescript", icon: TsIcon },
+    { label: "Kotlin", icon: KotlinIcon },
+    { label: "Clerk", icon: ClerkIcon },
+    { label: "NeonDB", icon: NeonIcon },
+    { label: "Google Analytics", icon: GAIcon },
   ],
   year: 2026,
   tag: "Project",

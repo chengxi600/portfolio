@@ -1,8 +1,22 @@
+import type { Project } from "./types";
+
+// Stack Icons
 import ClerkIcon from "@/assets/textures/projects/clerk.svg";
 import ReactIcon from "@/assets/textures/projects/react.svg";
 import TsIcon from "@/assets/textures/projects/ts.svg";
+import NeonIcon from "@/assets/textures/projects/neon.svg";
+import VercelIcon from "@/assets/textures/projects/vercel.svg";
+
+// Link Icons
 import WebsiteIcon from "@/assets/textures/projects/website.svg";
-import type { Project } from "./types";
+
+// Images
+import Homepage from "@/assets/projects/lgbt-senior-housing/home.png";
+import Gallery from "@/assets/projects/lgbt-senior-housing/gallery.png";
+import RequestForm from "@/assets/projects/lgbt-senior-housing/request.png";
+import Team from "@/assets/projects/lgbt-senior-housing/team.png";
+import Payload from "@/assets/projects/lgbt-senior-housing/payload.png";
+import CMS from "@/assets/projects/lgbt-senior-housing/cms.png";
 
 const lgbtSeniorHousing: Project = {
   id: "lgbt-senior-housing",
@@ -10,9 +24,11 @@ const lgbtSeniorHousing: Project = {
   subtitle:
     "Website for The Pryde, a LGBT senior housing community in Boston",
   stack: [
-    { label: "Clerk", icon: ClerkIcon },
     { label: "React", icon: ReactIcon },
     { label: "Typescript", icon: TsIcon },
+    { label: "Clerk", icon: ClerkIcon },
+    { label: "NeonDB", icon: NeonIcon },
+    { label: "Vercel", icon: VercelIcon },
   ],
   year: 2025,
   tag: "Project",
@@ -29,28 +45,33 @@ const lgbtSeniorHousing: Project = {
   gallery: [
     {
       id: "lgbt-1",
-      url: "https://images.unsplash.com/photo-1761882725885-d3d8bd2032d1?auto=format&fit=crop&q=80&w=687",
+      url: Homepage,
       title: "Homepage",
     },
     {
       id: "lgbt-2",
-      url: "https://images.unsplash.com/photo-1661980494567-40a5e01b699b?auto=format&fit=crop&q=80&w=685",
-      title: "Community Dashboard",
+      url: Gallery,
+      title: "Gallery",
     },
     {
       id: "lgbt-3",
-      url: "https://images.unsplash.com/photo-1761775915848-467e41c1c4db?auto=format&fit=crop&q=80&w=689",
-      title: "Events Page",
+      url: RequestForm,
+      title: "Request Form",
     },
     {
       id: "lgbt-4",
-      url: "https://images.unsplash.com/photo-1761882835101-02ab45ac0726?auto=format&fit=crop&q=80&w=690",
-      title: "Resource Directory",
+      url: Team,
+      title: "Team",
     },
     {
       id: "lgbt-5",
-      url: "https://images.unsplash.com/photo-1761078980679-e89e25fe279b?auto=format&fit=crop&q=80&w=687",
-      title: "Contact Form",
+      url: Payload,
+      title: "Payload",
+    },
+    {
+      id: "lgbt-6",
+      url: CMS,
+      title: "CMS",
     },
   ],
 };

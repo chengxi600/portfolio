@@ -1,18 +1,29 @@
-import ClerkIcon from "@/assets/textures/projects/clerk.svg";
-import ReactIcon from "@/assets/textures/projects/react.svg";
-import TsIcon from "@/assets/textures/projects/ts.svg";
+import type { Project } from "./types";
+
+// Stack Icons
+import ThreejsIcon from "@/assets/textures/projects/threejs.svg";
+import MediapipeIcon from "@/assets/textures/projects/mediapipe.svg";
+import ElectronIcon from "@/assets/textures/projects/electron.svg";
+
+// Link Icons
 import GithubIcon from "@/assets/textures/projects/github.svg";
 import DownloadIcon from "@/assets/textures/projects/download.svg";
-import type { Project } from "./types";
+
+// Images
+import InfiniteVoid from "@/assets/projects/satoru/infinite.png";
+import Shrine from "@/assets/projects/satoru/shrine.png";
+import Kon from "@/assets/projects/satoru/kon.png";
+import Purple from "@/assets/projects/satoru/purple.png";
+
 
 const satoru: Project = {
   id: "satoru",
   title: "Satoru Desktop App",
   subtitle: "Anime hand gesture visualizer",
   stack: [
-    { label: "Clerk", icon: ClerkIcon },
-    { label: "React", icon: ReactIcon },
-    { label: "Typescript", icon: TsIcon },  
+    { label: "Three.js", icon: ThreejsIcon },
+    { label: "MediaPipe", icon: MediapipeIcon },
+    { label: "Electron", icon: ElectronIcon },
   ],
   year: 2026,
   tag: "Project",
@@ -34,13 +45,23 @@ const satoru: Project = {
   gallery: [
     {
       id: "satoru-1",
-      url: "https://images.unsplash.com/photo-1761775915848-467e41c1c4db?auto=format&fit=crop&q=80&w=689",
-      title: "Gesture Detection",
+      url: InfiniteVoid,
+      title: "Infinite Void",
     },
     {
       id: "satoru-2",
-      url: "https://images.unsplash.com/photo-1761882835101-02ab45ac0726?auto=format&fit=crop&q=80&w=690",
-      title: "Overlay Rendering",
+      url: Shrine,
+      title: "Shrine",
+    },
+    {
+      id: "satoru-3",
+      url: Kon,
+      title: "Kon",
+    },
+    {
+      id: "satoru-4",
+      url: Purple,
+      title: "Purple",
     },
   ],
 };
