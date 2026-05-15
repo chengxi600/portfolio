@@ -12,7 +12,7 @@ const satoru: Project = {
   stack: [
     { label: "Clerk", icon: ClerkIcon },
     { label: "React", icon: ReactIcon },
-    { label: "Typescript", icon: TsIcon },
+    { label: "Typescript", icon: TsIcon },  
   ],
   year: 2026,
   tag: "Project",

@@ -1,0 +1,94 @@
+.osuFilterBar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 0 0 auto;
+  padding: 0 10px;
+}
+
+/* --- Row 1: search --------------------------------------------------- */
+
+.osuFilterBar__searchRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.osuFilterBar__searchWrap {
+  flex: 1 1 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.osuFilterBar__searchInput {
+  width: 100%;
+  padding: 8px 40px 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(30, 30, 30, 0.7);
+  color: #fff;
+  font-size: 0.85rem;
+  outline: none;
+  caret-color: #fff;
+}
+
+.osuFilterBar__searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.osuFilterBar__searchInput:focus {
+  box-shadow: 0 0 0 2px rgba(254, 85, 165, 0.5);
+}
+
+.osuFilterBar__searchIcon {
+  position: absolute;
+  right: 10px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.1rem !important;
+  pointer-events: none;
+}
+
+.osuFilterBar__matchCount {
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  color: #FE55A5;
+  white-space: nowrap;
+}
+
+/* --- Row 2: filter dropdowns ----------------------------------------- */
+
+.osuFilterBar__filtersRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.osuFilterBar__dropdown {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.osuFilterBar__dropdownLabel {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+
+.osuFilterBar__select {
+  min-width: 70px;
+}
+
+.osuFilterBar__select .MuiSelect-select {
+  padding: 5px 28px 5px 8px !important;
+}

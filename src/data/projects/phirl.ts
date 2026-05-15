@@ -11,7 +11,7 @@ const phirl: Project = {
     "Progress heuristic inverse reinforcement learning with Robot Study",
   stack: [
     { label: "Clerk", icon: ClerkIcon },
-    { label: "React", icon: ReactIcon },
+    { label: "React", icon: ReactIcon }, 
     { label: "Typescript", icon: TsIcon },
   ],
   year: 2026,

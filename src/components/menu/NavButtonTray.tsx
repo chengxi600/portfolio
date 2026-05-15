@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 import useButtonSfx from "../../hooks/useButtonSfx";
 import useNavMenus from "../../hooks/useNavMenus";
+import { useNavigate } from "react-router-dom";
 
 const menuButtonTransition = {
   type: "tween" as const,
@@ -13,6 +14,7 @@ const menuButtonTransition = {
 };
 
 function NavButtonTray() {
+  const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const { currentMenu } = useNavMenus({ setExpanded });
@@ -22,7 +24,7 @@ function NavButtonTray() {
     setIsAnimating(true);
     setExpanded(true);
     if (expanded) {
-      // TODO: enter next screen
+      navigate("/projects");
     }
   };
 

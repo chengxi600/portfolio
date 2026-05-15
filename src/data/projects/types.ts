@@ -1,3 +1,5 @@
+export type ProjectTag = "Project" | "Research" | "Open Source";
+
 export type LinkInfo = {
   label: string;
   link: string;
@@ -25,7 +27,7 @@ export type Project = {
   subtitle: string;
   stack: TechIcon[];
   year: number;
-  tag: "Project" | "Research" | "Open Source";
+  tag: ProjectTag;
   links: LinkInfo[];
   details: ProjectDetails;
   gallery: GalleryItem[];

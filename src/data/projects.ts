@@ -10,7 +10,7 @@ import phirl from "./projects/phirl";
 import type { Project } from "./projects/types";
 
 export type { Project };
-export type { LinkInfo, TechIcon, GalleryItem, ProjectDetails } from "./projects/types";
+export type { LinkInfo, TechIcon, GalleryItem, ProjectDetails, ProjectTag } from "./projects/types";
 
 export const projects: Project[] = [
   lgbtSeniorHousing,

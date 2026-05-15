@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
-import { projects, type LinkInfo, type Project } from "../data/projects";
+import { projects, type LinkInfo, type Project, type ProjectTag } from "../data/projects";
 
 export type ProjectSortKey = "default" | "title" | "year";
-export type ProjectTagFilter = Project["tag"] | "All";
+export type ProjectTagFilter = ProjectTag | "All";
+export type ProjectStackFilter = string;
 
 export type ProjectItem = {
   type: "project";
@@ -24,6 +25,10 @@ type UseProjectListOptions = {
   initialTagFilter?: ProjectTagFilter;
 };
 
+const availableStacks: readonly string[] = Array.from(
+  new Set(projects.flatMap((p) => p.stack.map((s) => s.label))),
+).sort();
+
 function useProjectList({
   initialSortKey = "default",
   initialTagFilter = "All",
@@ -31,15 +36,36 @@ function useProjectList({
   const [sortKey, setSortKey] = useState<ProjectSortKey>(initialSortKey);
   const [tagFilter, setTagFilter] =
     useState<ProjectTagFilter>(initialTagFilter);
+  const [stackFilter, setStackFilter] =
+    useState<ProjectStackFilter>("All");
+  const [searchQuery, setSearchQuery] = useState("");
+  const initialExpandedProjectId = useMemo(() => {
+    return projects[Math.floor(projects.length/2)-1].id;
+  }, [projects]);
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(
-    null,
+    initialExpandedProjectId,
   );
 
-  const items = useMemo<ProjectListItem[]>(() => {
+  const { items, matchCount } = useMemo(() => {
     let next = [...projects];
 
     if (tagFilter !== "All") {
       next = next.filter((project) => project.tag === tagFilter);
+    }
+
+    if (stackFilter !== "All") {
+      next = next.filter((project) =>
+        project.stack.some((s) => s.label === stackFilter),
+      );
+    }
+
+    const q = searchQuery.trim().toLowerCase();
+    if (q) {
+      next = next.filter(
+        (project) =>
+          project.title.toLowerCase().includes(q) ||
+          project.subtitle.toLowerCase().includes(q),
+      );
     }
 
     if (sortKey === "title") {
@@ -50,12 +76,14 @@ function useProjectList({
       next.sort((a, b) => b.year - a.year);
     }
 
+    const count = next.length;
+
     const expandedId = next.some((project) => project.id === expandedProjectId)
       ? expandedProjectId
       : null;
 
-    return next.flatMap((project) => {
-      const rows: ProjectListItem[] = [
+    const rows = next.flatMap((project) => {
+      const projectRows: ProjectListItem[] = [
         {
           type: "project",
           id: project.id,
@@ -65,7 +93,7 @@ function useProjectList({
 
       if (expandedId === project.id) {
         project.links.forEach((link) => {
-          rows.push({
+          projectRows.push({
             type: "link",
             id: `${project.id}-${link.label}`,
             parentId: project.id,
@@ -73,9 +101,11 @@ function useProjectList({
           });
         });
       }
-      return rows;
+      return projectRows;
     });
-  }, [expandedProjectId, sortKey, tagFilter]);
+
+    return { items: rows, matchCount: count };
+  }, [expandedProjectId, sortKey, tagFilter, stackFilter, searchQuery]);
 
   const selectedProject: Project | null = useMemo(() => {
     const item = items.find(
@@ -88,6 +118,7 @@ function useProjectList({
 
   return {
     items,
+    matchCount,
     expandedProjectId,
     setExpandedProjectId,
     selectedProject,
@@ -95,6 +126,11 @@ function useProjectList({
     setSortKey,
     tagFilter,
     setTagFilter,
+    stackFilter,
+    setStackFilter,
+    searchQuery,
+    setSearchQuery,
+    availableStacks,
   };
 }
 
