@@ -1,18 +1,28 @@
-import ClerkIcon from "@/assets/textures/projects/clerk.svg";
-import ReactIcon from "@/assets/textures/projects/react.svg";
-import TsIcon from "@/assets/textures/projects/ts.svg";
+import type { Project } from "./types";
+
+// Stack Icons
+import JavaIcon from "@/assets/textures/projects/java.svg";
+import TiledIcon from "@/assets/textures/projects/tiled.svg";
+import LibGDXIcon from "@/assets/textures/projects/libgdx.svg";
+
+// Link Icons
 import GithubIcon from "@/assets/textures/projects/github.svg";
 import BlogIcon from "@/assets/textures/projects/blog.svg";
-import type { Project } from "./types";
+
+// Images
+import HUD from "@/assets/projects/rpg-concept/hud.gif";
+import Avatar from "@/assets/projects/rpg-concept/avatar.gif";
+import Map from "@/assets/projects/rpg-concept/map.gif";
+import TiledMap from "@/assets/projects/rpg-concept/tiled.webp";
 
 const rpgConcept: Project = {
   id: "rpg-concept",
   title: "RPG Concept",
   subtitle: "Realm of the Mad God clone concept",
   stack: [
-    { label: "Clerk", icon: ClerkIcon },
-    { label: "React", icon: ReactIcon },
-    { label: "Typescript", icon: TsIcon },
+    { label: "Java", icon: JavaIcon },
+    { label: "Tiled", icon: TiledIcon },
+    { label: "LibGDX Framework", icon: LibGDXIcon },
   ],
   year: 2018,
   tag: "Project",
@@ -34,23 +44,23 @@ const rpgConcept: Project = {
   gallery: [
     {
       id: "rpg-1",
-      url: "https://images.unsplash.com/photo-1756299792672-157811bf1005?auto=format&fit=crop&q=80&w=1074",
-      title: "Game World",
+      url: HUD,
+      title: "HUD",
     },
     {
       id: "rpg-2",
-      url: "https://images.unsplash.com/photo-1572851899646-a1f69c664e1e?auto=format&fit=crop&q=80&w=1170",
-      title: "HUD Design",
+      url: Avatar,
+      title: "Avatar",
     },
     {
       id: "rpg-3",
-      url: "https://images.unsplash.com/photo-1761165307495-56bd564d322f?auto=format&fit=crop&q=80&w=663",
-      title: "Combat System",
+      url: Map,
+      title: "Map",
     },
     {
       id: "rpg-4",
-      url: "https://images.unsplash.com/photo-1761775915848-467e41c1c4db?auto=format&fit=crop&q=80&w=689",
-      title: "Inventory Screen",
+      url: TiledMap,
+      title: "Tiled Map",
     },
   ],
 };

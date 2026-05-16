@@ -9,9 +9,9 @@ import GymIcon from "@/assets/textures/projects/gym.svg";
 import GithubIcon from "@/assets/textures/projects/github.svg";
 
 // Images
-import LunarLander from "@/assets/projects/rl-stuff/lunar.png";
+import LunarLander from "@/assets/projects/rl-stuff/lunar.gif";
 import TRPO from "@/assets/projects/rl-stuff/trpo.png";
-import MountainCar from "@/assets/projects/rl-stuff/mountaincar.png";
+import MountainCar from "@/assets/projects/rl-stuff/mountaincar.gif";
 import Eval from "@/assets/projects/rl-stuff/eval.png";
 
 const rlStuff: Project = {
