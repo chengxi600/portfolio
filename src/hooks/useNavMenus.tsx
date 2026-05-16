@@ -120,7 +120,7 @@ function useNavMenus({
     ];
 
     return { main: mainMenu, socials: socialsMenu };
-  }, [playButtonClick, playButtonEnter, setExpanded]);
+  }, [playButtonClick, playButtonEnter, setExpanded, navigate]);
 
   const currentMenu = menus[menuId];
 

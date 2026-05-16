@@ -39,9 +39,7 @@ function useProjectList({
   const [stackFilter, setStackFilter] =
     useState<ProjectStackFilter>("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const initialExpandedProjectId = useMemo(() => {
-    return projects[Math.floor(projects.length/2)-1].id;
-  }, [projects]);
+  const initialExpandedProjectId = projects[Math.floor(projects.length/2)-1].id;
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(
     initialExpandedProjectId,
   );

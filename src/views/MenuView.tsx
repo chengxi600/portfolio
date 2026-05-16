@@ -5,8 +5,8 @@ import "./MenuView.css";
 
 function MenuView() {
   const menuStyle: CSSProperties = {
-    ["--osu-bg-x" as any]: "0px",
-    ["--osu-bg-y" as any]: "0px",
+    ["--osu-bg-x" as string]: "0px",
+    ["--osu-bg-y" as string]: "0px",
   };
 
   return (

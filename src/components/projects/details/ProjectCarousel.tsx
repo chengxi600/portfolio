@@ -5,13 +5,15 @@ import './ProjectCarousel.css';
 
 export default function ProjectCarousel({ items }: { items: GalleryItem[] }) {
   const [index, setIndex] = useState(0);
+  const [prevItems, setPrevItems] = useState(items);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
 
-  useEffect(() => {
+  if (items !== prevItems) {
+    setPrevItems(items);
     setIndex(0);
-  }, [items]);
+  }
 
   useEffect(() => {
     if (containerRef.current) {

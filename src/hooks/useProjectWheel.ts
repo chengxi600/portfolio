@@ -54,17 +54,21 @@ function useProjectWheel<T>(
 
   const trackOffset = -scrollY;
 
-  const itemStates = useMemo(() => {
-    let currentTop = trackOffset;
+  const prefixHeights = useMemo(() => {
+    // prefixHeights[i] = sum(heights[0..i-1])
+    return heights.map((_, index) =>
+      heights.slice(0, index).reduce((sum, h) => sum + h, 0),
+    );
+  }, [heights]);
 
+  const itemStates = useMemo(() => {
     return items.map((item, index) => {
       const height = heights[index] ?? itemHeight;
+      const currentTop = trackOffset + (prefixHeights[index] ?? 0);
       const distance = currentTop + height / 2 - listHeight / 2;
       const steps = distance / itemHeight;
       const scale = 1 - Math.min(Math.abs(steps) * 0.03, 0.16);
       const opacity = 1 - Math.min(Math.abs(steps) * 0.18, 0.7);
-
-      currentTop += height;
 
       return {
         item,
@@ -74,7 +78,7 @@ function useProjectWheel<T>(
         opacity,
       };
     });
-  }, [heights, items, itemHeight, listHeight, trackOffset]);
+  }, [heights, items, itemHeight, listHeight, prefixHeights, trackOffset]);
 
   const focusedIndex = useMemo(
     () => {
