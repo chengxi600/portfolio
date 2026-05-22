@@ -50,19 +50,31 @@ function ProjectWheel({
     }
   }, [handleItemClick, itemStates]);
 
+  useEffect(() => {
+    const el = listRef.current;
+    if (!el) {
+      return;
+    }
+
+    const onWheel = (event: globalThis.WheelEvent) => {
+      event.preventDefault();
+      handleWheel(event.deltaY);
+
+      const now = Date.now();
+      if (now - lastHoverSfxAt.current > 90) {
+        playProjectHover();
+        lastHoverSfxAt.current = now;
+      }
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [handleWheel, playProjectHover]);
 
   return (
     <section
       className="osuProjectWheel"
       ref={listRef}
-      onWheel={(event) => {
-        handleWheel(event);
-        const now = Date.now();
-        if (now - lastHoverSfxAt.current > 90) {
-          playProjectHover();
-          lastHoverSfxAt.current = now;
-        }
-      }}
     >
       <motion.div
         className="osuProjectWheel__track"

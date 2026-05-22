@@ -1,4 +1,3 @@
-import type { WheelEvent } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export type WheelItemState<T> = {
@@ -123,9 +122,8 @@ function useProjectWheel<T>(
   );
 
   const handleWheel = useCallback(
-    (event: WheelEvent<HTMLElement>) => {
-      event.preventDefault();
-      setScrollY((value) => clampScroll(value + event.deltaY));
+    (deltaY: number) => {
+      setScrollY((value) => clampScroll(value + deltaY));
     },
     [clampScroll],
   );
