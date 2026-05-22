@@ -33,7 +33,7 @@ const portfolio: Project = {
     },
     {
       label: "Website",
-      link: "https://portfolio-five-rust-25.vercel.app/",
+      link: "https://chengxitsou-portfolio.vercel.app/",
       icon: WebsiteIcon,
     },
   ],
