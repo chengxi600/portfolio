@@ -13,6 +13,12 @@ import GithubIcon from "@/assets/textures/projects/github.svg";
 import WebsiteIcon from "@/assets/textures/projects/website.svg";
 
 // Images
+import Home from "@/assets/projects/fillyb/home.png";
+import Event from "@/assets/projects/fillyb/event.png";
+import Leaderboard from "@/assets/projects/fillyb/leaderboard.png";
+import Portfolio from "@/assets/projects/fillyb/portfolio.png";
+import History from "@/assets/projects/fillyb/history.png";
+import Admin from "@/assets/projects/fillyb/admin.png";
 
 const fillybExchange: Project = {
   id: "fillyb-exchange",
@@ -41,38 +47,38 @@ const fillybExchange: Project = {
     },
   ],
   details: {
-    description: "test",
+    description: "Fake esports betting site using a parimutuel betting system similar to Twitch points. Our website serviced 3 different leagues with around 50 account signups and 100+ unique users. Main features are betting on events, leaderboard, portfolio, history, and admin page.",
   },
   gallery: [
     {
       id: "fillyb-1",
-      url: "https://images.unsplash.com/photo-1761882725885-d3d8bd2032d1?auto=format&fit=crop&q=80&w=687",
-      title: "Betting Dashboard",
+      url: Home,
+      title: "Home",
     },
     {
       id: "fillyb-2",
-      url: "https://images.unsplash.com/photo-1760389005000-bf02bf24f463?auto=format&fit=crop&q=80&w=1123",
-      title: "Match Odds",
+      url: Event,
+      title: "Event Details",
     },
     {
       id: "fillyb-3",
-      url: "https://images.unsplash.com/photo-1761165307495-56bd564d322f?auto=format&fit=crop&q=80&w=663",
-      title: "Leaderboard",
+      url: Leaderboard,
+      title: "Leaderboard View",
     },
     {
       id: "fillyb-4",
-      url: "https://images.unsplash.com/photo-1572851899646-a1f69c664e1e?auto=format&fit=crop&q=80&w=1170",
-      title: "User Profile",
+      url: Portfolio,
+      title: "Portfolio View",
     },
     {
       id: "fillyb-5",
-      url: "https://images.unsplash.com/photo-1661980494567-40a5e01b699b?auto=format&fit=crop&q=80&w=685",
-      title: "Live Match View",
+      url: History,
+      title: "Event History",
     },
     {
       id: "fillyb-6",
-      url: "https://images.unsplash.com/photo-1756299792672-157811bf1005?auto=format&fit=crop&q=80&w=1074",
-      title: "Transaction History",
+      url: Admin,
+      title: "Admin Page",
     },
   ],
 };

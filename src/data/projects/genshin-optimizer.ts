@@ -18,7 +18,7 @@ import Artifacts from "@/assets/projects/genshin-optimizer/artifacts.png";
 const genshinOptimizer: Project = {
   id: "genshin-optimizer",
   title: "Genshin Optimizer",
-  subtitle: "Contributed to a Genshin Impact optimizer tool",
+  subtitle: "Open sourced optimizer tool for the game Genshin Impact.",
   stack: [
     { label: "React", icon: ReactIcon },
     { label: "Typescript", icon: TsIcon },
@@ -39,7 +39,7 @@ const genshinOptimizer: Project = {
     },
   ],
   details: {
-    description: "test",
+    description: "Contributed to this open sourced Genshin optimizer tool. At the time, I was an avid Genshin player and user of this tool and wanted to contribute. Was bored over a summer and wanted to contribute so worked mainly on the Archive page.",
   },
   gallery: [
     {

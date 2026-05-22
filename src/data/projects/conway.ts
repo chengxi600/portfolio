@@ -26,7 +26,7 @@ const conway: Project = {
     },
   ],
   details: {
-    description: "test",
+    description: "This was a project I made my Junior year of high school, after I took AP CSA and learned Java. Used simple Java GUI library to render the cells, 2D array to maintain the cells state and simple state machine transitions for the cell transition logic.",
   },
   gallery: [
     {

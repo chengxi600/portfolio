@@ -39,7 +39,7 @@ const rpgConcept: Project = {
     },
   ],
   details: {
-    description: "test",
+    description: "This was a super fun project I worked on in high school trying to recreate the game 'Realm of the Mad God'. Used Tiled to make maps and Java's LibGDX framework for rendering the game. Tried to do a ECS (Entity Component System) design. Was able to implement shooting, changing attack speed, movement speed, oryx camera shake, picking/dropping items.",
   },
   gallery: [
     {

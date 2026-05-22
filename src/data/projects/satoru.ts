@@ -40,7 +40,7 @@ const satoru: Project = {
     },
   ],
   details: {
-    description: "test",
+    description: "Extended a fun anime hand technique visualizer inspired by a project I saw on IG reels. Added music, new visualizations, and better gesture detection. Used Electron to turn this into a multi-platform desktop app.",
   },
   gallery: [
     {

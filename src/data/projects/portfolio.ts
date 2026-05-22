@@ -7,6 +7,7 @@ import FramerIcon from "@/assets/textures/projects/framer.svg";
 
 // Link Icons
 import GithubIcon from "@/assets/textures/projects/github.svg";
+import WebsiteIcon from "@/assets/textures/projects/website.svg";
 
 // Images
 import Menu from "@/assets/projects/portfolio/menu.png";
@@ -30,9 +31,14 @@ const portfolio: Project = {
       link: "https://github.com/chengxi600/portfolio",
       icon: GithubIcon,
     },
+    {
+      label: "Website",
+      link: "https://portfolio-five-rust-25.vercel.app/",
+      icon: WebsiteIcon,
+    },
   ],
   details: {
-    description: "test",
+    description: "A project portfolio inspired by the rhythm game osu!'s UI. Mainly has my more recent projects.",
   },
   gallery: [
     {

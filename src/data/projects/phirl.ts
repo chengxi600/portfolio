@@ -31,7 +31,7 @@ const phirl: Project = {
     },
   ],
   details: {
-    description: "test",
+    description: "Worked with a PhD student Hang Yu from the AABL lab to implement a real robot study that involved collecting demonstrations, replaying and annotating trajectories, and training on a Kinova Gen3 Lite Arm on a brushing task.",
   },
   gallery: [
     {

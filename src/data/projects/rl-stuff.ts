@@ -33,7 +33,7 @@ const rlStuff: Project = {
     },
   ],
   details: {
-    description: "test",
+    description: "After taking an AI course over summer, I got inspired to dive deeper into Reinforcement Learning. Went through the Sutton & Barto textbook and implemented algorithms from landmark papers such as DQN, A2C, PPO, TRPO, DDPG, and more. Evaluated implementations on toy domains on OpenAI's Gym. Learned a lot about the literature in this field and how to read papers.",
   },
   gallery: [
     {

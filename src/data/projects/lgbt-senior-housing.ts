@@ -40,7 +40,7 @@ const lgbtSeniorHousing: Project = {
     },
   ],
   details: {
-    description: "test",
+    description: "Picked up this project from the Tuft's club JumboCode for the summer. Worked with a friend over summer and did contracted work to finish up this project. Mainly implemented a Content Management System to provide a no-code interface for admins to edit content.",
   },
   gallery: [
     {
